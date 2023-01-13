@@ -28,12 +28,59 @@ fun main(){
         """
             array1 size : ${arr1.size}
             array1 data : ${arr1[0]}, ${arr1.get(1)}, ${arr1.get(2)}
-            array2 size : ${arr2.size}
-
-            
-            
+            array2 size : ${arr2.size}            
         """.trimIndent()
 
     )
 
+    var list = listOf<Int>(1,2,3)
+    var mlist = mutableListOf<Int>(10,20,30)
+    val map = mapOf<String, String>(Pair("one","android"), "two" to "language")
+
+    mlist.add(3, 40)
+    mlist.add(50)
+    mlist.set(4,1)
+
+    println("""
+        list size : ${list.size}
+        list data : ${list[0]} , ${list.get(1)}, ${list.get(2)}
+        mlist size : ${mlist.size}
+        mlist data ${mlist.get(mlist.size-1)}
+        map size : ${map.size}
+        map data : ${map.get("one")} , ${map.get("two")}
+    """.trimIndent())
+
+
+    val ifReturn = if(data1 >0){
+        println("data1은 0이상")
+        true
+    }else {
+        println("data1은 0이하")
+        false
+    }
+    println("ifReturn : "+ ifReturn)
+
+    
+    println("*******************")
+    
+    val str  = "one"
+    when (str){
+        "one" -> println("str은 1")
+        "two" -> println("str은 2")
+        is String -> println("str은 문자열임")
+//        in 1..10 -> println("str은 1부터 10까지 숫자임")
+        else ->{
+            println("str은 범위를 벗어남")
+        }
+    }
+
+    var sumI :Int = 0
+    for (i in data3..10){
+        sumI +=i
+    }
+    if(sumI>100){
+        println("sumI의 값 100이상이고 값은 : ${sumI}" )
+    } else{
+        println("sumI의 값 100이하이고 값은 : ${sumI}" )
+    }
 }
