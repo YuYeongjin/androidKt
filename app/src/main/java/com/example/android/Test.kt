@@ -83,4 +83,36 @@ fun main(){
     } else{
         println("sumI의 값 100이하이고 값은 : ${sumI}" )
     }
+
+
+    val dataList = listOf<Int>(111,222,333,444)
+    for ((index,value) in dataList.withIndex()){
+        print(value)
+        if(index !== dataList.size-1) print(",")
+    }
+    println()
+    val user= User("yeongjin")
+    user.wyn()
+
+    val user2 = UserName("hong", 10)
+}
+
+class User{
+    var name = "jin"
+    constructor(name: String){
+        this.name=name
+    }
+    init {
+        println("User class 호출")
+    }
+    fun wyn(){
+        println("name : ${name}" )
+    }
+    class someClass{}
+}
+
+class UserName(name:String){
+    constructor(name:String, count:Int):this(name){
+        println("올바른 실행")
+    }
 }
