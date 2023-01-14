@@ -116,3 +116,11 @@ class UserName(name:String){
         println("올바른 실행")
     }
 }
+
+open class mvp (name:String){
+
+}
+
+class m(name:String) :mvp(name){
+
+}
