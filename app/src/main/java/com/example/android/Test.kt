@@ -1,13 +1,12 @@
 val data1 = 10
 var data2 = 20
 val data3 : Int = 1
-
+typealias Funtype = (Int, Int) -> Boolean
 fun main(){
     println("hello world")
 
 //    data1 = 20
     data2 = 40
-
 
     fun sum(no: Int):Int{
         var sum=0
@@ -50,7 +49,6 @@ fun main(){
         map data : ${map.get("one")} , ${map.get("two")}
     """.trimIndent())
 
-
     val ifReturn = if(data1 >0){
         println("data1은 0이상")
         true
@@ -60,7 +58,6 @@ fun main(){
     }
     println("ifReturn : "+ ifReturn)
 
-    
     println("*******************")
     
     val str  = "one"
@@ -84,7 +81,6 @@ fun main(){
         println("sumI의 값 100이하이고 값은 : ${sumI}" )
     }
 
-
     val dataList = listOf<Int>(111,222,333,444)
     for ((index,value) in dataList.withIndex()){
         print(value)
@@ -95,6 +91,18 @@ fun main(){
     user.wyn()
 
     val user2 = UserName("hong", 10)
+
+    val someFum:Funtype = {
+        no1 : Int, no2 : Int -> no1>no2
+    }
+    println(someFum(10,20))
+    println(someFum(20,10))
+
+    var stri : String? ="jin"
+    println("string = $stri  ${stri?.length ?: -1}")
+    stri = null
+    println("string = $stri  ${stri?.length ?: -1}")
+
 }
 
 class User{
