@@ -11,9 +11,16 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 바인딩 객체
+        val binging = ActivityMainBinding.inflate(layoutInflater)
+
+        binging.imageView.setOnClickListener{
+            Log.d("JIN", "강아지 클릭 이벤트")
+        }
 
         //터치 이벤트
         fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -53,12 +60,10 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-        // 바인딩 객체
-        val binging = ActivityMainBinding.inflate(layoutInflater)
 
         // 액티비티 화면 출력
-        setContentView(binging.root)
-//        setContentView(R.layout.activity_main)
+//        setContentView(binging.root)
+        setContentView(R.layout.activity_main)
 
         val textView1:TextView = findViewById(R.id.text1)
 

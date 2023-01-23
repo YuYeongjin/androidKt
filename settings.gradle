@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "Android"
 include ':app'
 include ':ch6_view'
+include ':ch8_event'
+include ':ch9'

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ch9</string>
+    <string name="txt1">Hello</string>
+    <string name="txt2">Android!</string>
+</resources>
