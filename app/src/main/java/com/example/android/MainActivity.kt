@@ -1,12 +1,12 @@
 package com.example.android
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
-import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.databinding.ActivityMainBinding
@@ -15,15 +15,25 @@ import com.example.android.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
         // 바인딩 객체
         val binging = ActivityMainBinding.inflate(layoutInflater)
+
+        // 화면 전환
+        val nextBtn:Button=findViewById(R.id.nextbtn)
+        nextBtn.setOnClickListener{
+            Toast.makeText(this, "gogo", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, NextActivity::class.java)
+            startActivity(intent)
+        }
 
         binging.imageView.setOnClickListener{
             Log.d("JIN", "강아지 클릭 이벤트")
         }
 
+        /*
         //터치 이벤트
-        fun onTouchEvent(event: MotionEvent?): Boolean {
+        override fun onTouchEvent(event: MotionEvent?): Boolean {
             when(event?.action){
                 MotionEvent.ACTION_DOWN ->{
                     Log.d("jin","Touch down")
@@ -37,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             return super.onTouchEvent(event)
         }
 
-        fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
             when(keyCode){
                 KeyEvent.KEYCODE_BACK -> Log.d("jin","BACK Button")
                 KeyEvent.KEYCODE_VOLUME_UP -> Log.d("jin","Volume up Button")
@@ -51,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("jin","onKeyUp")
             return super.onKeyUp(keyCode, event)
         }
-
+*/
         // 뒤로가기 이벤트
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
@@ -59,11 +69,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
-
         // 액티비티 화면 출력
 //        setContentView(binging.root)
-        setContentView(R.layout.activity_main)
 
         val textView1:TextView = findViewById(R.id.text1)
 
@@ -73,8 +80,10 @@ class MainActivity : AppCompatActivity() {
 
         button1.setOnClickListener{
             if(targetView.visibility==View.VISIBLE){
+                Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
                 targetView.visibility = View.INVISIBLE
             } else{
+                Toast.makeText(this, "clickxxx", Toast.LENGTH_SHORT).show()
                 targetView.visibility = View.VISIBLE
             }
 
